@@ -1,0 +1,4 @@
+#!/bin/sh
+THIS_DIR=$(readlink -f $(dirname $(readlink -f $0)))
+
+exec java -Xss2M -Xms100M -Xmx2312M -XX:+UseG1GC -XX:+CMSClassUnloadingEnabled ${SBT_OPTS} -Dsbt.ivy.home=$THIS_DIR/ivy-home -Dsbt.boot.directory=$THIS_DIR/sbt-boot -Dsbt.global.base=$THIS_DIR/sbt-home -jar $THIS_DIR/sbt-launch-0.13.9.jar "$@"

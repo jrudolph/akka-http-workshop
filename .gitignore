@@ -1,0 +1,5 @@
+/.idea*
+/bin/ivy-home
+/bin/sbt-home
+/bin/sbt-boot
+target
