@@ -5,8 +5,17 @@ import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.HttpResponse
 import akka.stream.ActorMaterializer
 
+import scala.util.{Failure, Success}
+
 object Boot extends App {
   implicit val system = ActorSystem()
+  import system.dispatcher
   implicit val materializer = ActorMaterializer()
-  Http().bindAndHandleSync(req => HttpResponse(entity = "Hello World!"), interface = "127.0.0.1", port = 8080)
+
+  Http().bindAndHandleSync(req => HttpResponse(entity = "Hello World!"), interface = "127.0.0.1", port = 8080).onComplete {
+    case Success(Http.ServerBinding(local)) => println(s"Server bound successfully to $local")
+    case Failure(error) =>
+      println("Error during server start")
+      error.printStackTrace()
+  }
 }
