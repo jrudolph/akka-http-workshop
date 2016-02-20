@@ -1,5 +1,10 @@
 This repository will contain source code and preparation instructions for the [akka-http tutorial at BOBkonf 2016](http://bobkonf.de/2016/rudolph.html).
 
+**Update**:
+
+I promised to put the link here to our [scala.world 2015 demonstration of streaming using akka-http / akka-stream](https://www.youtube.com/watch?v=6VBn9V3S2aQ). Here it is :)
+
+
 I'm looking forward to meet you!
 
 If you are going to attend please run the following preparation instructions before the tutorial so that we can dive
